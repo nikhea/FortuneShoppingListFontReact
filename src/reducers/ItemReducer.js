@@ -1,13 +1,15 @@
 import uuid from 'uuid';
-import { GET_ITEMS, ADD_ITEM, REMOVE_ITEM, ITEMS_LOADING } from '../actions/Types';
+import { GET_ITEMS, ADD_ITEM, REMOVE_ITEM,  ITEMS_LOADING } from '../actions/Types';
 
 export const initialState = {
 	items: [
-		{ id: uuid(), name: 'Eggs' },
-		{ id: uuid(), name: 'Milk' },
-		{ id: uuid(), name: 'Steak' },
-		{ id: uuid(), name: 'Water' }
-	]
+		// { id: uuid(), name: 'Eggs' },
+		// { id: uuid(), name: 'Milk' },
+		// { id: uuid(), name: 'Steak' },
+		// { id: uuid(), name: 'Water' }
+	],
+	item:{},
+	isLoading: false
 };
 
 export default function(state = initialState, action) {
@@ -15,7 +17,8 @@ export default function(state = initialState, action) {
 		case GET_ITEMS:
 			return {
 				...state,
-				items: action.payload
+				items: action.payload,
+				isLoading: true
 			};
 		case ADD_ITEM:
 			return {
@@ -31,6 +34,7 @@ export default function(state = initialState, action) {
 			return {
 				...state
 			};
+
 		case ITEMS_LOADING:
 			return {
 				...state,
