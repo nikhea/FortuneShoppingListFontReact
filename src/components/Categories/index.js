@@ -1,15 +1,15 @@
-import React from 'react'
-import CategoriesList from './categoriesList'
-import AddCategories from './addCategories'
-const index = () => {
-    return (
-        <div> 
-            
-          {/* <AddCategories/> */}
-            <CategoriesList />
-         
-        </div>
-    )
-}
+import React from 'react';
+import { Link } from 'react-router-dom';
+import * as Routes from '../../Routes/Routes';
+import CategoriesList from './categoriesList';
 
-export default index
+const index = () => {
+	return (
+		<div>
+			<Link to={Routes.CategoriesForm}>Create A New Categories</Link>
+			<CategoriesList />
+		</div>
+	);
+};
+
+export default index;

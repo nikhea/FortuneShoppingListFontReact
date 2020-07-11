@@ -1,4 +1,4 @@
-import { GET_CATEGORIES,GET_ONE_CATEGORIES, ADD_CATEGORIE, REMOVE_CATEGORIE, CATEGORIES_LOADING } from './Types';
+import { GET_CATEGORIES, GET_ONE_CATEGORIES, ADD_CATEGORIE, REMOVE_CATEGORIE, CATEGORIES_LOADING } from './Types';
 import axios from 'axios';
 
 const url = `http://localhost:3000/api/routes/categories`;
@@ -19,8 +19,7 @@ export const getONECATEGORIES = (_id) => async (dispatch) => {
 			payload: res.data
 		});
 	} catch (error) {}
-	
-}
+};
 export const removeCATEGORIE = (_id) => async (dispatch) => {
 	const res = await axios.delete(`${url}/${_id}`);
 	try {

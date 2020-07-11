@@ -1,16 +1,24 @@
 import React from 'react';
-import ItemsList from '../Items/itemsList';
 
 import { Link } from 'react-router-dom';
-import SingleCategories from './SingleCategories';
 
 const categoriesItems = ({ categorie }) => {
-	const { name, description, _id, items, date, resquest: { url } } = categorie;
+	const { name, description, _id, date } = categorie;
 	return (
-		<div>
-			<h1>{name}</h1>
-			<p>{description}</p>
-			<Link to={`/catagoriesList/${_id}`}>Go</Link>
+		<div data-aso='fade-up'>
+			{/* <Link to={`/catagoriesList/${_id}`}>View Items</Link> */}
+			<Link
+				to={{
+					pathname: `/catagoriesList/${_id}`,
+					state: { categorie }
+				}}
+			>
+				<div>
+					<h1>{name}</h1>
+					<p>{description}</p>
+					<p>Created_At: {date}</p>
+				</div>
+			</Link>
 		</div>
 	);
 };

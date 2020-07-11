@@ -1,14 +1,17 @@
-import React from 'react'
+import React from 'react';
 
 const ItemItems = ({ item}) => {
-   const {name} =item
+	console.log(item);
+	const { name, price, itemImage } = item;
 
-    
-    return (
-        <div>
-            <h1>{name}</h1>
-        </div>
-    )
-}
+	return (
+		<div>
+			<h1>Name: {name}</h1>
+			<p>Price: {price}</p>
+			{itemImage}
+			<img src={itemImage} alt={name} />
+		</div>
+	);
+};
 
-export default ItemItems
+export default ItemItems;

@@ -7,28 +7,31 @@ import Spinner from '../../utils/Spinner';
 class categoriesList extends Component {
 	state = {};
 	componentDidMount() {
-		this.props.getCATEGORIES();
-		this.props.categories.isLoading = false;
+		setTimeout(() => {
+			this.props.getCATEGORIES();
+			this.props.categories.isLoading = false;
+		}, 3000);
 	}
 
 	render() {
 		const { categories: { categories: { categories }, isLoading } } = this.props;
-		// console.log(categories, isLoading);
+		console.log(isLoading);
 		if (typeof categories == 'undefined') {
-		   return <Spinner/>
+			// if (isLoading) {
+			return <Spinner />;
+			// }
+		} else {
+			return categories.map((categorie) => <CategoriesItems key={categorie._id} categorie={categorie} />);
 		}
-		else {
-		  return	categories.map((categorie) => <CategoriesItems key={categorie._id} categorie={categorie} />)
-		}
-		return (
-			<div>
-				{isLoading ? (
-					categories.map((categorie) => <CategoriesItems key={categorie._id} categorie={categorie} />)
-				) : (
-					<Spinner />
-				)}
-			</div>
-		);
+		// return (
+		// 	<div>
+		// 		{isLoading ? (
+		// 			categories.map((categorie) => <CategoriesItems key={categorie._id} categorie={categorie} />)
+		// 		) : (
+		// 			<Spinner />
+		// 		)}
+		// 	</div>
+		// );
 	}
 }
 

@@ -8,18 +8,16 @@ import {
 
 const initailState = {
 	categories: [],
-	categorie:{},
+	categorie: {},
 	isLoading: false
 };
 
 export default (state = initailState, action) => {
-	
 	switch (action.type) {
 		case GET_CATEGORIES:
 			return {
 				...state,
 				categories: action.payload,
-				// isLoading: false
 				isLoading: true
 			};
 		case CATEGORIES_LOADING:
@@ -36,8 +34,7 @@ export default (state = initailState, action) => {
 			return {
 				...state,
 				categorie: action.payload,
-				isLoading: true,
-				
+				isLoading: true
 			};
 		case REMOVE_CATEGORIE:
 			return {

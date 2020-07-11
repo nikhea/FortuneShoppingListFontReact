@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-// import 'semantic-ui-css/semantic.min.css';
-import Categories from './components/Categories';
-
-
-import { Route, Switch } from 'react-router-dom';
-import SingleCategories from './components/Categories/SingleCategories';
-import itemsList from './components/Items/itemsList';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import Routes from './Routes/Index';
 
 class App extends Component {
+	componentDidMount() {
+		Aos.init({
+			duration: 2000
+		});
+	}
 	render() {
 		return (
 			<div>
-				<Switch>
-					<Route exact path="/" component={Categories} />
-					<Route exact path="/catagoriesList/:_id" component={SingleCategories} />
-				</Switch>
+				<Routes />
 			</div>
 		);
 	}
