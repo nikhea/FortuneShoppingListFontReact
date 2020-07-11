@@ -8,35 +8,41 @@ import { addCATEGORIE } from '../../actions/CategoriesActions';
 
 const AddCATEGORIE = (props) => {
 	const dispatch = useDispatch();
-
 	const [ name, setName ] = useState('');
-
 	const [ description, setDiscription ] = useState('');
-
 	const [ err, setErr ] = useState('');
-
+	// setTimeout(() => {
+	// 	console.log(props.history.push(Routes.CategoriesList));
+	// }, 2000);
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const addCategorie = {
 			name,
-
 			description
 		};
 
 		if (!name || !description) {
 			setErr(
-				<Alert variant="warning" style={{ textAlign: 'center', marginTop: '2em', width: '100%' }}>
+				<Alert variant="warning" style={AlertStyles}>
 					Please Enter All Fields
 				</Alert>
 			);
 		} else {
-			dispatch(addCATEGORIE(addCategorie), () => {
-				props.history.push('/categoriesList');
+			// dispatch(addCATEGORIE(addCategorie), () => {
+			// 	props.history.push(Routes.CategoriesList);
+			// 	setName('');
+			// 	setDiscription('');
+			// });
 
-				setName('');
-
-				setDiscription('');
-			});
+			dispatch(addCATEGORIE(addCategorie))
+				.then(() => {
+						props.history.push(Routes.CategoriesList);
+						setName('');
+						setDiscription('');
+				})
+				.catch(() => {
+					alert('NO');
+				});
 		}
 	};
 
@@ -57,7 +63,7 @@ const AddCATEGORIE = (props) => {
 						name={description}
 						id={description}
 						onChange={(e) => setDiscription(e.target.value)}
-						required
+						// required
 					/>
 				</Form.Group>
 				<Button type="submit" className="btn btn-secondary mr-3">
@@ -74,10 +80,7 @@ const AddCATEGORIE = (props) => {
 };
 const Containerstyle = {
 	display: 'flex',
-	// alignItems: 'center',
-	// justifyItems: 'center',
 	justifyContent: 'center',
-	// textAlign: 'center',
 	flexDirection: 'column',
 	height: '100vh'
 };
@@ -85,5 +88,10 @@ const Formstyle = {
 	border: '0.5px solid #333',
 	margin: '2em',
 	padding: '2em'
+};
+const AlertStyles = {
+	textAlign: 'center',
+	marginTop: '2em',
+	width: '100%'
 };
 export default AddCATEGORIE;

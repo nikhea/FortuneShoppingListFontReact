@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import Routes from './Routes/Index';
+import { Container } from 'reactstrap';
 
 class App extends Component {
 	componentDidMount() {
@@ -11,9 +12,9 @@ class App extends Component {
 	}
 	render() {
 		return (
-			<div>
-				<Routes />
-			</div>
+			// <Container>
+			<Routes />
+			// </Container>
 		);
 	}
 }

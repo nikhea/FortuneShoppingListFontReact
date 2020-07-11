@@ -10,7 +10,7 @@ class categoriesList extends Component {
 		setTimeout(() => {
 			this.props.getCATEGORIES();
 			this.props.categories.isLoading = false;
-		}, 3000);
+		}, 10);
 	}
 
 	render() {

@@ -18,12 +18,12 @@ export default function(state = initialState, action) {
 		case ADD_ITEM:
 			return {
 				...state,
-				articles: [ action.payload, ...state.items ]
+				items: [ action.payload, ...state.items ]
 			};
 		case REMOVE_ITEM:
 			return {
 				...state,
-				articles: state.items.filter((item) => item._id !== action.payload)
+				items: state.items.filter((item) => item._id !== action.payload)
 			};
 		default:
 			return {

@@ -1,7 +1,12 @@
-import { GET_CATEGORIES, GET_ONE_CATEGORIES, ADD_CATEGORIE, REMOVE_CATEGORIE, CATEGORIES_LOADING } from './Types';
-import axios from 'axios';
 
-const url = `http://localhost:3000/api/routes/categories`;
+import axios from 'axios';
+import {url} from './Url'
+import { GET_CATEGORIES, GET_ONE_CATEGORIES, ADD_CATEGORIE, REMOVE_CATEGORIE, CATEGORIES_LOADING } from './Types';
+
+
+// const url = `http://localhost:3000/api/routes/categories`;
+
+
 export const getCATEGORIES = () => async (dispatch) => {
 	const res = await axios.get(url);
 	try {
@@ -32,6 +37,7 @@ export const removeCATEGORIE = (_id) => async (dispatch) => {
 
 export const addCATEGORIE = (categories) => async (dispatch) => {
 	const res = await axios.post(url, categories);
+	console.log(categories);
 	try {
 		dispatch({
 			type: ADD_CATEGORIE,

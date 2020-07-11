@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getItem } from '../../actions/ItemsActions';
+import {Link} from 'react-router-dom'
+import { getItem, } from '../../actions/ItemsActions';
 import Spinner from '../../utils/Spinner';
 import ItemsItem from './ItemItems';
+
+import { Fragment } from 'react';
 
 class ItemsList extends Component {
 	state = {
@@ -18,16 +21,27 @@ class ItemsList extends Component {
 
 	render() {
 		const { items: { items }, isLoading } = this.props.items;
-		console.log(items);
-		if (typeof items == 'undefined') {
-			if (isLoading) {
-				return <Spinner />;
-			}
-		} else {
-			return items.map((item) => <ItemsItem key={item._id} item={item} title="Items" />);
-		}
+		// console.log(items);
+		// if (typeof items == 'undefined') {
+		// 	if (isLoading) {
+		// 		return <Spinner />;
+		// 	}
+		// } else {
+		// 	return items.map((item) => <ItemsItem key={item._id} item={item} title="Items" />);
+		// }
 
-		return <div />;
+		return (
+			<div>
+			
+				{isLoading ? (
+					<Fragment>{items.map((item) => <ItemsItem key={item._id} item={item} title="Items" />)}</Fragment>
+				) : (
+					<Fragment>
+						<Spinner />
+					</Fragment>
+				)}
+			</div>
+		);
 	}
 }
 

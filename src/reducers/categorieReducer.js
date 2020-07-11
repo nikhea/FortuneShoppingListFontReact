@@ -28,7 +28,7 @@ export default (state = initailState, action) => {
 		case ADD_CATEGORIE:
 			return {
 				...state,
-				articles: [ action.payload, ...state.items ]
+				categories: [ action.payload, ...state.items ]
 			};
 		case GET_ONE_CATEGORIES:
 			return {
@@ -39,7 +39,7 @@ export default (state = initailState, action) => {
 		case REMOVE_CATEGORIE:
 			return {
 				...state,
-				articles: state.items.filter((item) => item._id !== action.payload)
+				categories: state.items.filter((item) => item._id !== action.payload)
 			};
 		default:
 			return { ...state };

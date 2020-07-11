@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import * as Routes from '../../Routes/Routes';
 import PropTypes from 'prop-types';
-import { getONECATEGORIES } from '../../actions/CategoriesActions';
+import { getONECATEGORIES, removeCATEGORIE } from '../../actions/CategoriesActions';
 import { connect } from 'react-redux';
 import Spinner from '../../utils/Spinner';
-import ItemsList from '../Items/itemsList';
+// import ItemsList from '../Items/itemsList';
+import ItemsTest from '../Items/ItemsTest';
 class SingleCategories extends Component {
 	static CategoriesContext = {
 		router: PropTypes.object
@@ -14,17 +15,24 @@ class SingleCategories extends Component {
 	componentDidMount() {
 		this.props.getONECATEGORIES(this.state.id);
 		this.props.categories.isLoading = false;
-		console.log(this.props.history);
 	}
 	state = {
 		id: this.props.match.params._id
 	};
-	goBack() {
-		this.props.history.push('/');
+	removeCategorie(_id) {
+		console.log(_id);
+		this.props
+			.removeCATEGORIE(_id)
+			.then(() => {
+				this.props.history.push(Routes.CategoriesList);
+			})
+			.catch(() => {
+				alert('Not Removed');
+			});
 	}
 	render() {
 		const { categories: { categorie: { Categories }, isLoading } } = this.props;
-		console.log(isLoading);
+
 		if (typeof Categories == 'undefined') {
 			// if (isLoading) {
 			return <Spinner />;
@@ -33,12 +41,19 @@ class SingleCategories extends Component {
 			return (
 				<div>
 					<Link to={Routes.CategoriesList}>Go Back</Link>
-					{/* <button onClick={this.goBack}>Go Home</button> */}
+					<button
+						onClick={() => {
+							this.removeCategorie(Categories._id);
+						}}
+					>
+						Remove
+					</button>
 					<h2>
 						ShoppingList Items for <span> {Categories.name}</span>
 					</h2>
 					<h6>{Categories.description ? Categories.description : <p>No description pls Add</p>}</h6>
-					<ItemsList />
+					{/* <ItemsList /> */}
+					<ItemsTest Cid={Categories._id} items={Categories.items}/>
 				</div>
 			);
 		}
@@ -63,4 +78,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default withRouter(connect(mapStateToProps, { getONECATEGORIES })(SingleCategories));
+export default withRouter(connect(mapStateToProps, { getONECATEGORIES, removeCATEGORIE })(SingleCategories));

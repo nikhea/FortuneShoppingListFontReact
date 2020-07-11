@@ -3,9 +3,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const categoriesItems = ({ categorie }) => {
+	console.log(categorie.description)
 	const { name, description, _id, date } = categorie;
 	return (
-		<div data-aso='fade-up'>
+		<div data-aso="fade-up">
 			{/* <Link to={`/catagoriesList/${_id}`}>View Items</Link> */}
 			<Link
 				to={{
@@ -15,7 +16,7 @@ const categoriesItems = ({ categorie }) => {
 			>
 				<div>
 					<h1>{name}</h1>
-					<p>{description}</p>
+					<p>{description ? description : 'no description '}</p>
 					<p>Created_At: {date}</p>
 				</div>
 			</Link>
