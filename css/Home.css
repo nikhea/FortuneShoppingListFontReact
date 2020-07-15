@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+.Header {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.712)), to(rgba(0, 0, 0, 0.712))), url("../../imgShopping/ShoppingHome1.jpeg");
+  background: linear-gradient(rgba(0, 0, 0, 0.712), rgba(0, 0, 0, 0.712)), url("../../imgShopping/ShoppingHome1.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 80vh;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  min-height: 200px;
+  background-attachment: fixed;
+  position: relative;
+  color: #fff;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.Header__Text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+.Header__Text h1 {
+  font-size: 3em;
+  letter-spacing: 0.1em;
+}
+
+.Header__Text p {
+  letter-spacing: 0.1em;
+}
+
+.Header__Text--Link {
+  cursor: pointer;
+  padding: 0.5em 1.5em;
+  border: 1px solid orange;
+  width: 20%;
+  border-radius: 20px;
+  color: #fff;
+  color: orange;
+  text-decoration: none;
+  letter-spacing: 0.2em;
+  text-align: center;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+.Header__Text--Link:hover {
+  background-color: #e79d13;
+  text-decoration: none;
+  color: #fff;
+}
+/*# sourceMappingURL=Home.css.map */

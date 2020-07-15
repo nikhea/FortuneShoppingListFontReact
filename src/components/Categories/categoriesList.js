@@ -10,28 +10,16 @@ class categoriesList extends Component {
 		setTimeout(() => {
 			this.props.getCATEGORIES();
 			this.props.categories.isLoading = false;
-		}, 10);
+		}, 3000);
 	}
 
 	render() {
-		const { categories: { categories: { categories }, isLoading } } = this.props;
-		console.log(isLoading);
+		const { categories: { categories: { categories } } } = this.props;
 		if (typeof categories == 'undefined') {
-			// if (isLoading) {
 			return <Spinner />;
-			// }
 		} else {
 			return categories.map((categorie) => <CategoriesItems key={categorie._id} categorie={categorie} />);
 		}
-		// return (
-		// 	<div>
-		// 		{isLoading ? (
-		// 			categories.map((categorie) => <CategoriesItems key={categorie._id} categorie={categorie} />)
-		// 		) : (
-		// 			<Spinner />
-		// 		)}
-		// 	</div>
-		// );
 	}
 }
 

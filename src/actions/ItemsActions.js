@@ -14,7 +14,6 @@ export const getItem = (_id) => async (dispatch) => {
 
 export const removeItem = (cId, Iid) => async (dispatch) => {
 	const res = await axios.delete(`${url}/${cId}/Items/${Iid}`);
-	console.log(cId, Iid);
 	try {
 		dispatch({
 			type: REMOVE_ITEM,
@@ -23,12 +22,30 @@ export const removeItem = (cId, Iid) => async (dispatch) => {
 	} catch (error) {}
 };
 
-export const addItem = (item) => async (dispatch) => {
-	console.log(item);
-	dispatch({
-		type: ADD_ITEM,
-		payload: item
-	});
+export const addItem = (item, _id) => async (dispatch) => {
+	console.log(_id);
+	let { name, price, itemImage } = item;
+	let data = new FormData();
+	data.append('name', name);
+	data.append('price', price);
+	data.append('itemImage', itemImage);
+	// for (const iterator of data.entries()) {
+	// 	console.log(iterator);
+	// }
+
+	const config = {
+		headers: {
+			'Content-type': 'multipart/form-data'
+		}
+	};
+	const res = await axios.post(`${url}/${_id}/Items`, data, config);
+	console.log(res.data);
+	try {
+		dispatch({
+			type: ADD_ITEM,
+			payload: res.data
+		});
+	} catch (error) {}
 };
 
 export const setItemsLoading = () => {

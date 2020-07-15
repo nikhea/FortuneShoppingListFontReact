@@ -11,9 +11,6 @@ const AddCATEGORIE = (props) => {
 	const [ name, setName ] = useState('');
 	const [ description, setDiscription ] = useState('');
 	const [ err, setErr ] = useState('');
-	// setTimeout(() => {
-	// 	console.log(props.history.push(Routes.CategoriesList));
-	// }, 2000);
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const addCategorie = {
@@ -28,17 +25,11 @@ const AddCATEGORIE = (props) => {
 				</Alert>
 			);
 		} else {
-			// dispatch(addCATEGORIE(addCategorie), () => {
-			// 	props.history.push(Routes.CategoriesList);
-			// 	setName('');
-			// 	setDiscription('');
-			// });
-
 			dispatch(addCATEGORIE(addCategorie))
 				.then(() => {
-						props.history.push(Routes.CategoriesList);
-						setName('');
-						setDiscription('');
+					props.history.push(Routes.CategoriesList);
+					setName('');
+					setDiscription('');
 				})
 				.catch(() => {
 					alert('NO');
@@ -49,7 +40,7 @@ const AddCATEGORIE = (props) => {
 	return (
 		<Container style={Containerstyle}>
 			<Alert.Heading>{err}</Alert.Heading>
-
+               <h1 className='text-center'>CREATE A NEW CATEGORIE</h1>
 			<Form onSubmit={handleSubmit} style={Formstyle}>
 				<Form.Group>
 					<Form.Label>title</Form.Label>
@@ -63,7 +54,7 @@ const AddCATEGORIE = (props) => {
 						name={description}
 						id={description}
 						onChange={(e) => setDiscription(e.target.value)}
-						// required
+						required
 					/>
 				</Form.Group>
 				<Button type="submit" className="btn btn-secondary mr-3">

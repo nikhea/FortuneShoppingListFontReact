@@ -1,97 +1,86 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button, Form, Container, Alert } from 'react-bootstrap';
-import { Input } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { addItem } from '../../actions/ItemsActions';
-import * as Routes from '../../Routes/Routes';
-const ArticleForm = (props) => {
+
+const ItemForm = (props) => {
 	const dispatch = useDispatch();
-
-	const [ title, setTitle ] = useState('');
-	const [ author, setAuthor ] = useState('');
-	const [ description, setDiscription ] = useState('');
-	const [ image, setImage ] = useState('');
+	const [ name, setName ] = useState('');
+	const [ price, setPrice ] = useState('');
+	const [ itemImage, setitemImage ] = useState(null);
 	const [ err, setErr ] = useState('');
-
+	const _id = props.match.params._id;
+	// props.location.state.C
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const addItems = {
-			title,
-			author,
-			description,
-			image
+			name,
+			price,
+			itemImage
 		};
-
-		if (!title || !author || !description || !image) {
+		if (!name || !price || !itemImage) {
 			setErr(
-				<Alert variant="warning" style={{ textAlign: 'center', marginTop: '2em', width: '100%' }}>
+				<Alert variant="warning" style={AlertStyles}>
 					Please Enter All Fields
 				</Alert>
 			);
 		} else {
-			dispatch(addItem(addItems))
+			dispatch(addItem(addItems, _id))
 				.then(() => {
-					props.history.push(Routes.CategoriesList);
+					props.history.push(`/catagoriesList/${_id}`);
 				})
 				.catch(() => {
 					alert('NO');
 				});
 		}
 	};
-	const Formstyle = {
-		border: '0.5px solid #333',
-		margin: '2em',
-		padding: '2em'
-	};
 
 	return (
-		<Container>
+		<Container style={Containerstyle}>
 			<Alert.Heading>{err}</Alert.Heading>
-
+			<h1 className="text-center">ADD AN ITEM TO  {props.location.state.C.toUpperCase()}</h1>
 			<Form onSubmit={handleSubmit} style={Formstyle}>
 				<Form.Group>
-					<Form.Label>title</Form.Label>
+					<Form.Label>Item</Form.Label>
 					<Form.Control
-						name={title}
-						id={title}
-						onChange={(e) => setTitle(e.target.value)}
+						multiple
+						name={name}
+						id={name}
+						onChange={(e) => setName(e.target.value)}
 						// required
 					/>
 				</Form.Group>
 
 				<Form.Group>
-					<Form.Label>author</Form.Label>
+					<Form.Label>Price</Form.Label>
 					<Form.Control
-						name={author}
-						id={author}
-						onChange={(e) => setAuthor(e.target.value)}
+						multiple
+						name={price}
+						id={price}
+						onChange={(e) => setPrice(e.target.value)}
 						// required
 					/>
 				</Form.Group>
 				<Form.Group>
 					<Form.Label>image</Form.Label>
 					<Form.Control
-						name={image}
-						id={image}
-						onChange={(e) => setImage(e.target.value)}
+						name={itemImage}
+						id={itemImage}
+						type="file"
+						multiple
+						onChange={(e) => setitemImage(e.target.files[0])}
 						// required
 					/>
+					<span>
+						<small className="text-secondary font-italic">max size: 5mb</small>
+					</span>
 				</Form.Group>
-				<Form.Group>
-					<Form.Label>description</Form.Label>
-					<Input
-						type="textarea"
-						name={description}
-						id={description}
-						onChange={(e) => setDiscription(e.target.value)}
-						// required
-					/>
-				</Form.Group>
+
 				<Button type="submit" className="btn btn-secondary mr-3">
-					Add New Article{' '}
+					Add Item{' '}
 				</Button>
-				<Link to="/articlelist">
+				<Link to={`/catagoriesList/${_id}`}>
 					<Button type="submit" className="btn btn-primary">
 						Cancle{' '}
 					</Button>
@@ -100,5 +89,21 @@ const ArticleForm = (props) => {
 		</Container>
 	);
 };
+const Containerstyle = {
+	display: 'flex',
+	justifyContent: 'center',
+	flexDirection: 'column',
+	height: '100vh'
+};
+const Formstyle = {
+	border: '0.5px solid #333',
+	margin: '2em',
+	padding: '2em'
+};
+const AlertStyles = {
+	textAlign: 'center',
+	marginTop: '2em',
+	width: '100%'
+};
 
-export default ArticleForm;
+export default withRouter(ItemForm);
