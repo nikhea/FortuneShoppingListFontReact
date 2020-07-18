@@ -1,22 +1,17 @@
 $parimary-color: orange;
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: Arial, Helvetica, sans-serif;
-	// font-size: 1.2rem,
-}
+
 a {
 	text-decoration: none;
 }
-ul{
+ul {
 	list-style: none;
 }
 
 img {
 	width: 100%;
+	height: auto;
 }
-.btn {
+.btns {
 	cursor: pointer;
 	padding: 0.5em 1.5em;
 	border: 1px solid $parimary-color;
@@ -31,7 +26,7 @@ img {
 	transition: 1.5s;
 }
 .dbtn,
-.btn:hover {
+.btns:hover {
 	background-color: rgb(231, 157, 19);
 	text-decoration: none;
 	color: #fff;
@@ -189,14 +184,95 @@ img {
 
 .MULTIPLE__LISTS {
 	display: flex;
+	justify-content: space-around;
 	&__Image {
 		width: 40%;
 	}
 	&__Text {
 		display: flex;
 		flex-direction: column;
-		
 		justify-content: center;
 		text-align: justify;
+		h2 {
+			font-size: 36px;
+			line-height: 48px;
+		}
+		h2::after {
+			content: '';
+			display: block;
+			background: $parimary-color;
+			width: 40px;
+			height: 7px;
+			// margin: 10px auto;
+			margin: 1.5rem 0px;
+		}
+		p {
+			font-size: 18px;
+			font-weight: 300;
+			line-height: 1.75em;
+		}
+		ul {
+			color: #303c40;
+		}
 	}
+	li {
+		position: relative;
+		padding-bottom: 30px;
+	}
+	// li:before {
+	// 	color: #72b4b6;
+	// 	// font-family: "feather";
+	// 	content: "\e116";
+	// 	position: absolute;
+	// 	left: -24px;
+	// }
+}
+
+#Free__Download {
+	margin: 0;
+	margin-top: 60px;
+	height: 40vh;
+	padding: 190px 0px;
+	font-weight: normal;
+	p {
+		font-size: 18px;
+		padding: 20px 0px;
+		line-height: 3em;
+	}
+}
+.carousel-inner > .item {
+	position: relative !important;
+	display: none !important;
+	-webkit-transition: 0.3s ease-in-out left !important;
+	-moz-transition: 0.3s ease-in-out left !important;
+	-o-transition: 0.3s ease-in-out left !important;
+	transition: 0.3s ease-in-out left !important;
+}
+.dark {
+	// background: linear-gradient(rgba(0, 0, 0, 0.712), rgba(0, 0, 0, 0.712));
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 70vh;
+	margin: 0 auto;
+	width: 60vw;
+	background-attachment: fixed;
+	position: relative;
+	color: #fff;
+	transition: 1s;
+	&:after {
+		content: '';
+		width: 100%;
+		height: 100%;
+		height: 70vh;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+}
+.ImageDiv {
+	overflow: hidden;
+	height: 70vh;
+
 }

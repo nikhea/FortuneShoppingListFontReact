@@ -1,3 +1,28 @@
-.c{
-    transform: skew(4)
+$parimary-color: orange;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+	// font-size: 1.2rem,
+}
+.btns {
+	cursor: pointer;
+	padding: 0.5em 1.5em;
+	border: 1px solid $parimary-color;
+	width: 20%;
+	border-radius: 20px;
+	color: #fff;
+	color: $parimary-color;
+	text-decoration: none;
+	// font-size: 17px;
+	letter-spacing: 0.2em;
+	text-align: center;
+	transition: 1.5s;
+}
+.dbtn,
+.btns:hover {
+	background-color: rgb(231, 157, 19);
+	text-decoration: none;
+	color: #fff;
 }
