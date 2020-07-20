@@ -1,0 +1,11 @@
+.Categorie {
+	display: grid !important;
+	grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+   
+}
+
+.Categorie__Main {
+    border:1px solid $parimary-color;
+    background-color: rgb(245, 161, 6);
+}

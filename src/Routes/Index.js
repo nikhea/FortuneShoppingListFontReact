@@ -18,7 +18,7 @@ class Router extends Component {
 					<Route exact path={Routes.CategoriesItems} component={SingleCategories} />
 					<Route exact path={Routes.ItemsForm} component={AddItem} />
 				</Switch>
-				<Footer/>
+				{/* <Footer/> */}
 			</div>
 		);
 	}

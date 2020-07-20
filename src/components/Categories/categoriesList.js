@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Container, Row, Col} from 'reactstrap'
+import { Container } from 'reactstrap';
 import { getCATEGORIES, removeCATEGORIE } from '../../actions/CategoriesActions';
 import CategoriesItems from './categoriesItems';
+import { CategoriesJumbotron } from './CategoriesJumbotron';
 import Spinner from '../../utils/Spinner';
 
 class categoriesList extends Component {
 	state = {};
 	componentDidMount() {
 		// setTimeout(() => {
-			this.props.getCATEGORIES();
-			this.props.categories.isLoading = false;
+		this.props.getCATEGORIES();
+		this.props.categories.isLoading = false;
 		// }, 3000);
 	}
 
@@ -21,13 +22,13 @@ class categoriesList extends Component {
 		} else {
 			return (
 				<Container>
-					<Row >
-						<Col lg='3'  xm='1'>
-						{ categories.map((categorie) => <CategoriesItems key={categorie._id} categorie={categorie} />) }
-						</Col>
-					</Row>
+					<CategoriesJumbotron />
+
+					<div className="Categorie">
+						{categories.map((categorie) => <CategoriesItems key={categorie._id} categorie={categorie} />)}
+					</div>
 				</Container>
-			)
+			);
 		}
 	}
 }

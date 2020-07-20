@@ -1,36 +1,4 @@
 
-
-a {
-	text-decoration: none;
-}
-ul {
-	list-style: none;
-}
-
-img {
-	width: 100%;
-	height: auto;
-}
-.btns {
-	cursor: pointer;
-	padding: 0.5em 1.5em;
-	border: 1px solid $parimary-color;
-	width: 20%;
-	border-radius: 20px;
-	color: #fff;
-	color: $parimary-color;
-	text-decoration: none;
-	// font-size: 17px;
-	letter-spacing: 0.2em;
-	text-align: center;
-	transition: 1.5s;
-}
-.dbtn,
-.btns:hover {
-	background-color: rgb(231, 157, 19);
-	text-decoration: none;
-	color: #fff;
-}
 .Header {
 	background: linear-gradient(rgba(0, 0, 0, 0.712), rgba(0, 0, 0, 0.712)), url('../imgShopping/ShoppingHome1.jpeg');
 	background-position: center;
@@ -177,8 +145,6 @@ img {
 	}
 	p {
 		font-size: 1.5em;
-	}
-	a {
 	}
 }
 
