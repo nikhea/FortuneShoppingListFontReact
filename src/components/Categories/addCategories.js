@@ -26,7 +26,7 @@ const AddCATEGORIE = (props) => {
 			);
 		} else {
 			dispatch(addCATEGORIE(addCategorie))
-				.then(() => {
+				.then((e) => {
 					props.history.push(Routes.CategoriesList);
 					setName('');
 					setDiscription('');

@@ -6,6 +6,7 @@ import SingleCategories from '../components/Categories/SingleCategories';
 import AddCATEGORIE from '../components/Categories/addCategories';
 import Home from '../components/Home/Home';
 import AddItem from '../components/Items/AddItems';
+import Footer from '../components/Layout/Footer'
 class Router extends Component {
 	render() {
 		return (
@@ -17,6 +18,7 @@ class Router extends Component {
 					<Route exact path={Routes.CategoriesItems} component={SingleCategories} />
 					<Route exact path={Routes.ItemsForm} component={AddItem} />
 				</Switch>
+				<Footer/>
 			</div>
 		);
 	}

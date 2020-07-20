@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.scss';
+// import './Footer.scss';
 import { Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { FaTwitter, FaAndroid, FaGithub, FaLinkedinIn, FaCodepen } from 'react-icons/fa';
@@ -10,7 +10,7 @@ const Footer = () => {
 				<button className="btn dbtn">
 					<FaAndroid />
 				</button>
-				<Container className='Footer__Center'>
+				<Container className="Footer__Center">
 					<h5> Follow Us on</h5>
 					<div className="Footer__Icons">
 						<div>

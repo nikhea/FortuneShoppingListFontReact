@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import './App.scss'
+import './Scss/App.scss'
+// import './App.scss'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import Routes from './Routes/Index';
-// import { Container } from 'reactstrap';
+
 
 class App extends Component {
 	componentDidMount() {

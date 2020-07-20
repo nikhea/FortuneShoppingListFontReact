@@ -37,7 +37,6 @@ export const removeCATEGORIE = (_id) => async (dispatch) => {
 
 export const addCATEGORIE = (categories) => async (dispatch) => {
 	const res = await axios.post(url, categories);
-	console.log(categories);
 	try {
 		dispatch({
 			type: ADD_CATEGORIE,
