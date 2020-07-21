@@ -1,0 +1,27 @@
+.background {
+	padding: 10vh 0px;
+	padding-top:0px; 
+	//     background-image:
+	// linear-gradient(
+	//   red, #f06d06
+	// );background-image:
+	// linear-gradient(
+	//   red, #f06d06
+	// );
+	// background-image:
+	// linear-gradient(
+	//   to top right,
+	//   red, #f06d06
+	// );
+	background: #da4453;
+	background: -webkit-linear-gradient(to top, #89216b, #da4453);
+	background: linear-gradient(to top, #89216b, #da4453);
+	background: #333333;
+	background: -webkit-linear-gradient(to top, #dd1818, #333333); 
+	background: linear-gradient(
+		to top,
+		#dd1818,
+		#333333
+	); 
+	background-attachment: fixed;
+}

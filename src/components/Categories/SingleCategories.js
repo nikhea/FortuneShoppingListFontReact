@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { Container } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as Routes from '../../Routes/Routes';
@@ -7,6 +8,7 @@ import { getONECATEGORIES, removeCATEGORIE } from '../../actions/CategoriesActio
 import Spinner from '../../utils/Spinner';
 import ItemsList from '../Items/ItemsList';
 import TotalPrice from '../Items/totalPrice';
+import { Background } from '../Layout/Background';
 class SingleCategories extends Component {
 	static CategoriesContext = {
 		router: PropTypes.object
@@ -35,23 +37,27 @@ class SingleCategories extends Component {
 			return <Spinner />;
 		} else {
 			return (
-				<div>
-					<TotalPrice items={Categories.items} />
-					<Link to={Routes.CategoriesList}>Go Back</Link>
-					<button
-						disable="true"
-						onClick={() => {
-							this.removeCategorie(Categories._id);
-						}}
-					>
-						Remove
-					</button>
-					<h2>
-						ShoppingList Items for <span> {Categories.name}</span>
-					</h2>
-					<h6>{Categories.description ? Categories.description : <p>No description pls Add</p>}</h6>
-					<ItemsList Cname={Categories.name} Cid={Categories._id} items={Categories.items} />
-				</div>
+				<Background>
+					<Container>
+						<div>
+							<TotalPrice items={Categories.items} />
+							<Link to={Routes.CategoriesList}>Go Back</Link>
+							<button
+								disable="true"
+								onClick={() => {
+									this.removeCategorie(Categories._id);
+								}}
+							>
+								Remove
+							</button>
+							<h2>
+								ShoppingList Items for <span> {Categories.name}</span>
+							</h2>
+							<h6>{Categories.description ? Categories.description : <p>No description pls Add</p>}</h6>
+							<ItemsList Cname={Categories.name} Cid={Categories._id} items={Categories.items} />
+						</div>
+					</Container>
+				</Background>
 			);
 		}
 	}

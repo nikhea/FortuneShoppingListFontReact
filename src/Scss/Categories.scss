@@ -1,11 +1,60 @@
+.BackGrident {
+}
+
 .Categorie {
 	display: grid !important;
 	grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-   
+	grid-gap: 20px;
 }
+.Categorie__Main{
+	background: #e9ecef;
+	transition: 0.15s;
+	border-radius: 7px;
+	color: #333;
+	cursor: pointer;
 
-.Categorie__Main {
-    border:1px solid $parimary-color;
-    background-color: rgb(245, 161, 6);
+	a{
+		color: #333;
+		text-decoration: none;
+		// color: orange;
+	}
+}
+.Categorie__Main:hover{
+box-shadow: 1px 2px 8px 2px;
+}
+.Jumbotron {
+	box-shadow: 1px 2px 8px 2px;
+	font-weight: normal;
+	text-align: justify;
+	// background:red; 
+	h1{
+		font-size: 3em;
+	}
+	p{
+		font-size: 1.5em;
+		// margin: 2em 0em;
+	}
+	a{
+		margin-top:0em;
+		// background:red; 
+	}
+}
+.input {
+	background: none;
+	color: #fff;
+	border: none;
+	border-bottom: 0.5px solid #fff;
+	// opacity: 0.5;
+}
+.input:focus {
+	color: #fff;
+	background: none;
+}
+textarea{
+	// height: 30vh;
+	min-height: 15vh;
+}
+input,
+textarea {
+	color: #fff;
 }

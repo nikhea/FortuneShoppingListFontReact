@@ -1,5 +1,5 @@
 // import uuid from 'uuid';
-import { GET_ITEMS, ADD_ITEM, REMOVE_ITEM, ITEMS_LOADING } from '../actions/Types';
+import { GET_ITEMS, ADD_ITEM, ITEMS_LOADING } from '../actions/Types';
 
 export const initialState = {
 	items: [],

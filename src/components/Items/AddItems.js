@@ -37,68 +37,78 @@ const ItemForm = (props) => {
 	};
 
 	return (
-		<Container style={Containerstyle}>
-			<Alert.Heading>{err}</Alert.Heading>
-			<h1 className="text-center">ADD AN ITEM TO  {props.location.state.C.toUpperCase()}</h1>
-			<Form onSubmit={handleSubmit} style={Formstyle}>
-				<Form.Group>
-					<Form.Label>Item</Form.Label>
-					<Form.Control
-						multiple
-						name={name}
-						id={name}
-						onChange={(e) => setName(e.target.value)}
-						// required
-					/>
-				</Form.Group>
+		<div className="background">
+			<Container style={Containerstyle}>
+				<Alert.Heading>{err}</Alert.Heading>
+				<h1 className="text-center" data-aos="fade-left" data-aos-delay="100">
+					ADD AN ITEM TO {props.location.state.C.toUpperCase()}
+				</h1>
+				<Form data-aos="fade-right" data-aos-delay="200" onSubmit={handleSubmit} style={Formstyle}>
+					<Form.Group>
+						<Form.Label>Item</Form.Label>
+						<Form.Control
+							className="input"
+							multiple
+							name={name}
+							id={name}
+							onChange={(e) => setName(e.target.value)}
+							// required
+						/>
+					</Form.Group>
 
-				<Form.Group>
-					<Form.Label>Price</Form.Label>
-					<Form.Control
-						multiple
-						name={price}
-						id={price}
-						onChange={(e) => setPrice(e.target.value)}
-						// required
-					/>
-				</Form.Group>
-				<Form.Group>
-					<Form.Label>image</Form.Label>
-					<Form.Control
-						name={itemImage}
-						id={itemImage}
-						type="file"
-						multiple
-						onChange={(e) => setitemImage(e.target.files[0])}
-						// required
-					/>
-					<span>
-						<small className="text-secondary font-italic">max size: 5mb</small>
-					</span>
-				</Form.Group>
+					<Form.Group>
+						<Form.Label>Price</Form.Label>
+						<Form.Control
+							className="input"
+							multiple
+							name={price}
+							id={price}
+							type='number'
+							onChange={(e) => setPrice(e.target.value)}
+							placeholder="Price in number"
+							// required
+						/>
+					</Form.Group>
+					<Form.Group>
+						<Form.Label>image</Form.Label>
+						<Form.File
+							name={itemImage}
+							id={itemImage}
+							// type="file"
+							multiple
+							onChange={(e) => setitemImage(e.target.files[0])}
+							// required
+						/>
+						<span>
+							<small className="text-secondary font-italic">max size: 5mb</small>
+						</span>
+					</Form.Group>
 
-				<Button type="submit" className="btn btn-secondary mr-3">
-					Add Item{' '}
-				</Button>
-				<Link to={`/catagoriesList/${_id}`}>
-					<Button type="submit" className="btn btn-primary">
-						Cancle{' '}
+					<Button type="submit" className="btn btn-secondary mr-3">
+						Add Item{' '}
 					</Button>
-				</Link>
-			</Form>
-		</Container>
+					<Link to={`/catagoriesList/${_id}`}>
+						<Button type="submit" className="btn btn-primary">
+							Cancle{' '}
+						</Button>
+					</Link>
+				</Form>
+			</Container>
+		</div>
 	);
 };
 const Containerstyle = {
 	display: 'flex',
 	justifyContent: 'center',
 	flexDirection: 'column',
-	height: '100vh'
+	height: '100vh',
+	color: '#fff'
 };
 const Formstyle = {
-	border: '0.5px solid #333',
+	border: '0.5px solid #fff',
 	margin: '2em',
-	padding: '2em'
+	padding: '2em',
+	color: '#fff'
 };
 const AlertStyles = {
 	textAlign: 'center',

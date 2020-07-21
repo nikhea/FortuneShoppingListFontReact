@@ -42,7 +42,7 @@ export default (state = initailState, action) => {
 				...state,
 				categories: state.categories.filter((item) => item._id !== action.payload)
 			};
-			state.categorie.items.filter((item) => item._id !== action.payload);
+			// state.categorie.items.filter((item) => item._id !== action.payload);
 		case REMOVE_ITEM:
 			return {
 				...state,

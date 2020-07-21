@@ -1,0 +1,18 @@
+.Nav {
+	// padding-top: 23px;
+  // background: red;
+  padding-bottom: 19vh;
+  	padding-top: 25px;
+	a {
+		padding: 15px;
+		margin-top: 10px;
+		// color: orange;
+    font-size: 40px;
+    border: 2px solid orange;
+    border-radius:50px; 
+    transition: 1s;
+  }
+  a:hover{
+    color: rgb(219, 178, 101);
+  }
+}

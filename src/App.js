@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Scss/App.scss'
+import './Scss/App.scss';
 // import './App.scss'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -14,8 +14,9 @@ class App extends Component {
 	}
 	render() {
 		return (
-			<Routes />
-	
+			<div>
+				<Routes />
+			</div>
 		);
 	}
 }

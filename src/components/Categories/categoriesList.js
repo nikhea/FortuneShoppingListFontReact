@@ -4,15 +4,16 @@ import { Container } from 'reactstrap';
 import { getCATEGORIES, removeCATEGORIE } from '../../actions/CategoriesActions';
 import CategoriesItems from './categoriesItems';
 import { CategoriesJumbotron } from './CategoriesJumbotron';
+import { Background } from '../Layout/Background';
 import Spinner from '../../utils/Spinner';
 
 class categoriesList extends Component {
 	state = {};
 	componentDidMount() {
-		// setTimeout(() => {
-		this.props.getCATEGORIES();
-		this.props.categories.isLoading = false;
-		// }, 3000);
+		setTimeout(() => {
+			this.props.getCATEGORIES();
+			this.props.categories.isLoading = false;
+		}, 3000);
 	}
 
 	render() {
@@ -21,13 +22,17 @@ class categoriesList extends Component {
 			return <Spinner />;
 		} else {
 			return (
-				<Container>
-					<CategoriesJumbotron />
+				<Background>
+					<Container>
+						<CategoriesJumbotron />
 
-					<div className="Categorie">
-						{categories.map((categorie) => <CategoriesItems key={categorie._id} categorie={categorie} />)}
-					</div>
-				</Container>
+						<div className="Categorie">
+							{categories.map((categorie) => (
+								<CategoriesItems key={categorie._id} categorie={categorie} />
+							))}
+						</div>
+					</Container>
+				</Background>
 			);
 		}
 	}

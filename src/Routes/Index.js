@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import * as Routes from './Routes';
+import {Nav} from '../components/Layout/Nav'
 import Categories from '../components/Categories';
 import SingleCategories from '../components/Categories/SingleCategories';
 import AddCATEGORIE from '../components/Categories/addCategories';
@@ -11,6 +12,8 @@ class Router extends Component {
 	render() {
 		return (
 			<div>
+			
+				{/* <Nav/> */}
 				<Switch>
 					<Route exact path={Routes.Home} component={Home} />
 					<Route exact path={Routes.CategoriesList} component={Categories} />
@@ -18,7 +21,7 @@ class Router extends Component {
 					<Route exact path={Routes.CategoriesItems} component={SingleCategories} />
 					<Route exact path={Routes.ItemsForm} component={AddItem} />
 				</Switch>
-				{/* <Footer/> */}
+				<Footer/>
 			</div>
 		);
 	}
